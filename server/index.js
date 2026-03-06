@@ -57,6 +57,10 @@ app.post("/api/chat", async (req, res) => {
     }
 }); // Fechamento correto da rota
 
-app.listen(PORT, () => {
-    console.log(`🚀 SolarAI Server rodando em http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+    app.listen(PORT, () => {
+        console.log(`🚀 SolarAI Server rodando em http://localhost:${PORT}`);
+    });
+}
+
+export default app;
